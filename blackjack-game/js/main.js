@@ -1,17 +1,11 @@
-//Card ID array
+//Card ID array, this is a new deck order index to be used with the cards object
 var cardIDs = []
 for (var i = 0; i< 52; i++)
     {
         cardIDs.push(i)
     }
-var roundCounter = 1
-$roundCounter = $('#round-counter')
-$p1Wins = $('p1-wins')
 
-
-//Alert Box
-var $alerts = $('.alert-box')
-//List of Card Objects
+//List of Cards, these are in New Deck Order and indexed with cardIDs
 var cards = [{
     rank: 'ace',
     suit: 'hearts',
@@ -329,6 +323,7 @@ var cards = [{
 var newDeck = false
 var playIndex = 0
 var game = {
+    //create a list of players with properties
     player: [{
             name: 'Player 1',
             index: 0,
@@ -353,9 +348,9 @@ var game = {
             score: 0,
             busted: false,
         }],
-
+    //a function to shuffle our card index    
     shuffle: function(){
-        console.log("Current Player: " + game.currentPlayer.name)
+
             var cloneArray = []
             //populate the clone
             for (var i = 0; i< 52; i++)
@@ -366,13 +361,10 @@ var game = {
             var randomCard
             for (var i=0; i<52; i++){
                 randomCard = Math.floor(Math.random()*cloneArray.length)
-                //console.log(randomCard)
                 shuffleArray.push(cloneArray[randomCard])
-                cloneArray.splice(randomCard,1)
-            }
-            console.log(shuffleArray)
-            
+            }           
     },
+    //A function to put cards into players "hands"
     deal: function(){
         game.currentPlayer.hand.push(cards[shuffleArray[0]])
         shuffleArray.splice(0,1)
@@ -400,11 +392,12 @@ var game = {
                 game.currentPlayer.handValue = 0;
                 game.stay()
             }
-        //console.log("Remaining Cards: " + shuffleArray)
     },
+    //A function to perform "stay" action. Possible use later when switching between 2 players BEFORE going to house
     stay: function(){
         game.houseRules()
     },
+    //check for hand value, and if it exceeds 21
     checkBust: function(){
         var totalValue = 0;
         for (var i=0; i<game.currentPlayer.hand.length; i++)
@@ -417,9 +410,7 @@ var game = {
                 for (var i=0; i<game.currentPlayer.hand.length; i++)
                     {
                         if(game.currentPlayer.hand[i].rank === 'ace' && game.currentPlayer.hand[i].value === 11){
-                            //console.log('Current Card : '+ player1Hand[i].rank + " = " + player1Hand[i].value)
                             game.currentPlayer.hand[i].value=1
-                            //console.log(player1Hand[1].rank +" changed")
                             //Check again
                             game.checkBust()
                             //Do not return to function
@@ -443,20 +434,40 @@ var game = {
             return;
         }
     },
+    //Update the score of the players during round
     updateScore: function(){
-        game.currentPlayer.score += game.currentPlayer.handValue
-        $p1Score.text('Current Score: ' + game.player[0].score)
-        $p2Score.text('Current Score: ' + game.player[1].score)
+            game.currentPlayer.score += 1
+            $p1Score.text('Current Round Score: ' + game.player[0].score)
+            $p2Score.text('Current Round Score: ' + game.player[1].score)
     },
+    //Update the win count, and reset the scores
+    updateWins: function(){
+        debugger
+        if(game.player[0].score > game.player[1].score){
+            p1Score +=1
+            $Wins.text("Player 1 Wins: "+ p1Score + " |  Player 2 Wins: "+ p2Score)
+        }
+        else if(game.player[0].score < game.player[1].score){
+            p2Score +=1
+            $Wins.text("Player 1 Wins: "+ p1Score + " |  Player 2 Wins: "+ p2Score)
+        }
+        else{
+            $alerts.fadeOut(10, function() { 
+                $alerts.text("Tie Game, no points awarded! Try Again!")
+                $alerts.fadeIn(3000)
+                setTimeout(function(){$alerts.fadeOut(1000)}, 4000)
+              });
+        }
+        game.player[0].score = 0
+        game.player[1].score = 0
+    },
+    //AI for the house play. House MUST either beat the player, or bust.
     houseRules: function(){
         game.currentPlayer = game.player[2]
-        //debugger
         if(game.player[playIndex].handValue === 21){
-                //Player gains score
-                debugger
+                //Player gains score                
                 game.currentPlayer = game.player[playIndex]
                 game.updateScore()
-
                 //change if new deck
                 if (newDeck)
                 {
@@ -464,13 +475,15 @@ var game = {
                     if (playIndex === 2)
                         {
                             playIndex = 0
+                            roundCounter +=1
+                            $roundCounter.text('Round: ' + roundCounter)
+                            game.updateWins()
+
 
                         }
                     game.currentPlayer = game.player[playIndex]
                     newDeck = false
-                }
-
-            
+                }           
                 //Wipe hands
                 game.player[0].busted = false
                 game.player[1].busted = false
@@ -483,12 +496,10 @@ var game = {
 
                 return;
         }
-
         else if(game.currentPlayer.handValue >= game.player[playIndex].handValue)
             {
                 console.log('House Wins!')
                 //House Wins
-
                 //change players if new deck
                 if (newDeck)
                     {
@@ -498,33 +509,28 @@ var game = {
                                 playIndex = 0
                                 roundCounter +=1
                                 $roundCounter.text('Round: ' + roundCounter)
+                                game.updateWins()
                             }
                         newDeck = false
                     }
-                    game.currentPlayer = game.player[playIndex]
-
-                
+                    game.currentPlayer = game.player[playIndex]                
                 //Wipe hands
                 game.player[0].busted = false
                 game.player[1].busted = false
-                game.player[2].busted = false
-    
+                game.player[2].busted = false   
                 game.player[0].hand = []
                 game.player[1].hand = []
-                game.player[2].hand = []
-      
+                game.player[2].hand = []      
                 return;
-            }
-            
+            }           
         else if(game.currentPlayer.handValue < game.player[playIndex].handValue)
             {
                 game.deal()
                     if(game.currentPlayer.busted){
                             //Player gains score
-                            debugger
+                             
                             game.currentPlayer = game.player[playIndex]
                             game.updateScore()
-
                             //change if new deck
                             if (newDeck)
                                 {
@@ -534,12 +540,11 @@ var game = {
                                             playIndex = 0
                                             roundCounter +=1
                                             $roundCounter.text('Round: ' + roundCounter)
+                                            game.updateWins()
                                         }
                                     game.currentPlayer = game.player[playIndex]
                                     newDeck = false
-                                }
-
-                            
+                                }                            
                         //Wipe hands
                         game.player[0].busted = false
                         game.player[1].busted = false
@@ -558,6 +563,7 @@ var game = {
                     }
             }
     },
+    //Reset the game to a starting state
     reset: function(){
         game.player[0].score=0;
         game.player[1].score=0;
@@ -572,160 +578,28 @@ var game = {
         roundCounter = 1
         $roundCounter.text('Round : '+ roundCounter)
     }
-
-
-    
 }
+
+//add a currentPlayer to the game object, for easier referencing
 game.currentPlayer = game.player[0]
 
- //Score for jQuery elements
+ //pre-query the sore fields for easy reference
  var $p1Score = $('#p1-Score')
  var $p2Score = $('#p2-Score')
 
-//Disposable array of shuffled cards
+ //a counter for the current round, and it's jquery field
+ var roundCounter = 1
+ $roundCounter = $('#round-counter')
+
+ //elements for tracking, displaying, and calculating the wins
+ $Wins = $('#win-counter')
+ p1Score = 0
+ p2Score = 0
+ 
+ //Alert Box jquery, for later access
+ var $alerts = $('.alert-box')
+
+//Disposable array of shuffled cards, allows us to maintain a "new deck order" and remove cards from play
 var shuffleArray = []
 //game initialize
 game.shuffle()
-
-
-/*
-function houseRules(){
-    game.currentPlayer = game.player[2]
-    //debugger
-    if(game.currentPlayer.handValue >= game.player[playIndex].handValue)
-        {
-            console.log('House Wins!')
-            //House Wins
-            game.currentPlayer = game.player[0]
-            playIndex += 1
-            if (playIndex === 2)
-                {
-                    playIndex = 0
-                }
-            //Wipe hands
-            game.player[0].busted = false
-            game.player[1].busted = false
-            game.player[2].busted = false
-
-            game.player[0].hand = []
-            game.player[1].hand = []
-            game.player[2].hand = []
-  
-            return;
-        }
-        
-    else if(game.currentPlayer.handValue < game.player[0].handValue)
-        {
-            game.deal()
-                if(game.currentPlayer.busted){
-                        //Player 1 gains score
-                        game.currentPlayer = game.player[0]
-                        game.updateScore()
-                    //Wipe hands
-                    game.player[0].busted = false
-                    game.player[1].busted = false
-                    game.player[2].busted = false
-
-                    game.player[0].hand = []
-                    game.player[1].hand = []
-                    game.player[2].hand = []
-
-                    return;
-                }
-                else{
-                    houseRules()
-                    return;
-                }
-        }
-}
-*/
-/*
-function shuffle(){
-
-    var cloneArray = []
-    //populate the clone
-    for (var i = 0; i< 52; i++)
-        {
-            cloneArray.push(cardIDs[i])
-        }
-    shuffleArray = []
-    var randomCard
-    for (var i=0; i<52; i++){
-        randomCard = Math.floor(Math.random()*cloneArray.length)
-        //console.log(randomCard)
-        shuffleArray.push(cloneArray[randomCard])
-        cloneArray.splice(randomCard,1)
-    }
-    console.log(shuffleArray)
-    
-}
-*/
-
-/*
-function deal(){
-    player1Hand.push(cards[shuffleArray[0]])
-    shuffleArray.splice(0,1)
-    for (var i=0; i<player1Hand.length; i++)
-        {
-        console.log("Player 1's Hand: " + player1Hand[i].rank + " of " + player1Hand[i].suit)
-        }
-    checkBust()
-    //console.log("Remaining Cards: " + shuffleArray)
-}
-*/
-
-/*
-function stay(){
-    var totalValue = 0;
-    for (var i=0; i<player1Hand.length; i++)
-        {
-           totalValue += player1Hand[i].value
-        }
-    handValue = totalValue
-}
-*/
-
-/*
-function checkBust(){
-    var totalValue = 0;
-    for (var i=0; i<player1Hand.length; i++)
-        {
-           totalValue += player1Hand[i].value
-           console.log('totalValue = ' + totalValue)
-        }
-    if (totalValue > 21)
-        {
-            debugger
-            //Check if there's an ace and reassign the value to 1
-            for (var i=0; i<player1Hand.length; i++)
-                {
-                    if(player1Hand[i].rank === 'ace'){
-                        //console.log('Current Card : '+ player1Hand[i].rank + " = " + player1Hand[i].value)
-                        player1Hand[i].value=1
-                        //console.log(player1Hand[1].rank +" changed")
-                        //Check again
-                        checkBust()
-                        //Do not return to function
-                        return;
-                    }
-
-                }
-            //if there's no ace, then the player has busted and the function is over
-            //Bust Actions
-            //
-            //
-            return;
-        }
-    else{
-        //Player has not busted
-        console.log('no bust')
-        return;
-    }
-}
-*/
-/*
-function updateScore(){
-    p1Score += handValue
-    $p1Score.text('Current Score: ' + p1Score)
-}
-*/
