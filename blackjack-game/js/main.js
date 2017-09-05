@@ -327,6 +327,7 @@ var game = {
             hand: [],
             handValue: 0,
             score: 0,
+            busted: false,
         },
         {
             name: 'Player 2',
@@ -334,6 +335,7 @@ var game = {
             hand: [],
             handValue:0,
             score: 0,
+            busted: false,
         },
         {
             name:'House',
@@ -341,8 +343,9 @@ var game = {
             hand: [],
             handValue: 0,
             score: 0,
+            busted: false,
         }],
-    
+
     shuffle: function(){
         
             var cloneArray = []
@@ -367,18 +370,18 @@ var game = {
         shuffleArray.splice(0,1)
         for (var i=0; i<game.currentPlayer.hand.length; i++)
             {
-            console.log("Player 1's Hand: " + game.currentPlayer.hand[i].rank + " of " + game.currentPlayer.hand[i].suit)
+            console.log(game.currentPlayer.name + "'s hand: " + game.currentPlayer.hand[i].rank + " of " + game.currentPlayer.hand[i].suit)
             }
         game.checkBust()
+        if(game.currentPlayer != game.player[2] && game.currentPlayer.busted)
+            {
+                game.currentPlayer.handValue = 0;
+                game.stay()
+            }
         //console.log("Remaining Cards: " + shuffleArray)
     },
     stay: function(){
-        var totalValue = 0;
-        for (var i=0; i<game.currentPlayer.hand.length; i++)
-            {
-               totalValue += game.currentPlayer.hand[i].value
-            }
-        game.currentPlayer.handValue = totalValue
+        houseRules()
     },
     checkBust: function(){
         var totalValue = 0;
@@ -406,15 +409,15 @@ var game = {
                 //Bust Actions
                 //
                 //
-                console.log('totalValue = ' + totalValue)
-                console.log('bust')
+                console.log(game.currentPlayer.name + ' bust')
+                game.currentPlayer.busted = true;
                 return;
             }
         else{
             //Player has not busted
-            console.log('totalValue = ' + totalValue)
             game.currentPlayer.handValue = totalValue
-            console.log('no bust')
+            console.log(game.currentPlayer.name + ' no bust')
+            game.currentPlayer.busted = false;
             return;
         }
     },
@@ -433,28 +436,52 @@ game.currentPlayer = game.player[0]
  var $p1Score = $('#p1-Score')
  var $p2Score = $('#p2-Score')
 
-var handValue = 0;
-
 //Disposable array of shuffled cards
 var shuffleArray = []
+game.shuffle()
 
 function houseRules(){
     game.currentPlayer = game.player[2]
-    if(game.currentPlayer.handValue < game.player[0].handValue)
+    //debugger
+    if(game.currentPlayer.handValue >= game.player[0].handValue)
         {
-            game.deal()
-                if(game.checkBust)
-                    {
-                        //Player 1 gains score
-                        //Wipe hands
-                        game.currentPlayer = game.player[0]
-                    }
-        }
-    else if(game.currentPlayer.handValue >= game.player[0].handValue)
-        {
-            game.stay()
+            console.log('House Wins!')
             //House Wins
             game.currentPlayer = game.player[0]
+            //Wipe hands
+            game.player[0].busted = false
+            game.player[1].busted = false
+            game.player[2].busted = false
+
+            game.player[0].hand = []
+            game.player[1].hand = []
+            game.player[2].hand = []
+  
+            return;
+        }
+        
+    else if(game.currentPlayer.handValue < game.player[0].handValue)
+        {
+            game.deal()
+                if(game.currentPlayer.busted){
+                        //Player 1 gains score
+                        game.currentPlayer = game.player[0]
+                        game.updateScore()
+                    //Wipe hands
+                    game.player[0].busted = false
+                    game.player[1].busted = false
+                    game.player[2].busted = false
+
+                    game.player[0].hand = []
+                    game.player[1].hand = []
+                    game.player[2].hand = []
+
+                    return;
+                }
+                else{
+                    houseRules()
+                    return;
+                }
         }
 }
 
