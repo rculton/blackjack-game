@@ -9,313 +9,313 @@ for (var i = 0; i< 52; i++)
 var cards = [{
     rank: 'ace',
     suit: 'hearts',
-    faceImg: 'n/a',
+    faceImg: 'images/ace_of_hearts.svg',
     value: 11
     },
     {
         rank: 'two',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/2_of_hearts.svg',
         value: 2
     },
     {
         rank: 'three',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/3_of_hearts.svg',
         value: 3
     },
     {
         rank: 'four',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/4_of_hearts.svg',
         value: 4
     },
     {
         rank: 'five',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/5_of_hearts.svg',
         value: 5
     },
     {
         rank: 'six',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/6_of_hearts.svg',
         value: 6
     },
     {
         rank: 'seven',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/7_of_hearts.svg',
         value: 7
     },
     {
         rank: 'eight',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/8_of_hearts.svg',
         value: 8
     },
     {
         rank: 'nine',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/9_of_hearts.svg',
         value: 9
     },
     {
         rank: 'ten',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/10_of_hearts.svg',
         value: 10
     },
     {
         rank: 'jack',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/jack_of_hearts.svg',
         value: 10
     },
     {
         rank: 'queen',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/queen_of_hearts.svg',
         value: 10
     },
     {
         rank: 'king',
         suit: 'hearts',
-        faceImg: 'n/a',
+        faceImg: 'images/king_of_hearts.svg',
         value: 10
     },
     {
         rank: 'ace',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/ace_of_clubs.svg',
         value: 11
     },
     {
         rank: 'two',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/2_of_clubs.svg',
         value: 2
     },
     {
         rank: 'three',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/3_of_clubs.svg',
         value: 3
     },
     {
         rank: 'four',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/4_of_clubs.svg',
         value: 4
     },
     {
         rank: 'five',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/5_of_clubs.svg',
         value: 5
     },
     {
         rank: 'six',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/6_of_clubs.svg',
         value: 6
     },
     {
         rank: 'seven',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/7_of_clubs.svg',
         value: 7
     },
     {
         rank: 'eight',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/8_of_clubs.svg',
         value: 8
     },
     {
         rank: 'nine',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/9_of_clubs.svg',
         value: 9
     },
     {
         rank: 'ten',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/10_of_clubs.svg',
         value: 10
     },
     {
         rank: 'jack',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/jack_of_clubs.svg',
         value: 10
     },
     {
         rank: 'queen',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/queen_of_clubs.svg',
         value: 10
     },
     {
         rank: 'king',
         suit: 'clubs',
-        faceImg: 'n/a',
+        faceImg: 'images/king_of_clubs.svg',
         value: 10
     },
     {
         rank: 'ace',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/ace_of_diamonds.svg',
         value: 11
     },
     {
         rank: 'two',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/2_of_diamonds.svg',
         value: 2
     },
     {
         rank: 'three',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/3_of_diamonds.svg',
         value: 3
     },
     {
         rank: 'four',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/4_of_diamonds.svg',
         value: 4
     },
     {
         rank: 'five',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/5_of_diamonds.svg',
         value: 5
     },
     {
         rank: 'six',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/6_of_diamonds.svg',
         value: 6
     },
     {
         rank: 'seven',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/7_of_diamonds.svg',
         value: 7
     },
     {
         rank: 'eight',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/8_of_diamonds.svg',
         value: 8
     },
     {
         rank: 'nine',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/9_of_diamonds.svg',
         value: 9
     },
     {
         rank: 'ten',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/10_of_diamonds.svg',
         value: 10
     },
     {
         rank: 'jack',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/jack_of_diamonds.svg',
         value: 10
     },
     {
         rank: 'queen',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/queen_of_diamonds.svg',
         value: 10
     },
     {
         rank: 'king',
         suit: 'diamonds',
-        faceImg: 'n/a',
+        faceImg: 'images/king_of_diamonds.svg',
         value: 10
     },
     {
         rank: 'ace',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/ace_of_spades.svg',
         value: 11
     },
     {
         rank: 'two',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/2_of_spades.svg',
         value: 2
     },
     {
         rank: 'three',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/3_of_spades.svg',
         value: 3
     },
     {
         rank: 'four',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/4_of_spades.svg',
         value: 4
     },
     {
         rank: 'five',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/5_of_spades.svg',
         value: 5
     },
     {
         rank: 'six',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/6_of_spades.svg',
         value: 6
     },
     {
         rank: 'seven',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/7_of_spades.svg',
         value: 7
     },
     {
         rank: 'eight',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/8_of_spades.svg',
         value: 8
     },
     {
         rank: 'nine',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/9_of_spades.svg',
         value: 9
     },
     {
         rank: 'ten',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/10_of_spades.svg',
         value: 10
     },
     {
         rank: 'jack',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/jack_of_spades.svg',
         value: 10
     },
     {
         rank: 'queen',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/queen_of_spades.svg',
         value: 10
     },
     {
         rank: 'king',
         suit: 'spades',
-        faceImg: 'n/a',
+        faceImg: 'images/king_of_spades.svg',
         value: 10
     }]
 
@@ -366,36 +366,47 @@ var game = {
     },
     //A function to put cards into players "hands"
     deal: function(){
-        game.currentPlayer.hand.push(cards[shuffleArray[0]])
-        shuffleArray.splice(0,1)
-        if (shuffleArray[0] === undefined)
+        if(isClickable){    
+            game.currentPlayer.hand.push(cards[shuffleArray[0]])
+            $gameBoard.append('<img id="" src="' +cards[shuffleArray[0]].faceImg+'"/>')
+            shuffleArray.splice(0,1)
+            if (shuffleArray[0] === undefined)
             {
                 game.shuffle()
                 
                    // $(this).text("Deck is out of cards, new deck in play for remainder of round")
-                   $alerts.fadeOut(10, function() { 
-                    $alerts.text("Deck is out of cards, new deck in play for remainder of round")
-                    $alerts.fadeIn(3000)
-                    setTimeout(function(){$alerts.fadeOut(1000)}, 4000)
-                  });
+                   var $theAlert = $('<h3>Deck is out of cards! New Deck in play for remainder of round!</h3>')
+                   $theAlert.prependTo($alerts).hide().fadeIn(1000)
+                   setTimeout(function() {
+                    $alerts.children("h3:first").fadeOut(1000, function(){$(this).remove()})
+                  }, 4000);  
 
 
                 newDeck = true
             }
-        for (var i=0; i<game.currentPlayer.hand.length; i++)
-            {
-            console.log(game.currentPlayer.name + "'s hand: " + game.currentPlayer.hand[i].rank + " of " + game.currentPlayer.hand[i].suit)
-            }
-        game.checkBust()
-        if(game.currentPlayer != game.player[2] && game.currentPlayer.busted)
-            {
-                game.currentPlayer.handValue = 0;
-                game.stay()
+            for (var i=0; i<game.currentPlayer.hand.length; i++)
+                {
+                //console.log(game.currentPlayer.name + "'s hand: " + game.currentPlayer.hand[i].rank + " of " + game.currentPlayer.hand[i].suit)
+                }
+            game.checkBust()
+            if(game.currentPlayer != game.player[2] && game.currentPlayer.busted)
+                {
+                    game.currentPlayer.handValue = 0;
+
+                    game.stay()
+                }
             }
     },
     //A function to perform "stay" action. Possible use later when switching between 2 players BEFORE going to house
     stay: function(){
-        game.houseRules()
+        isClickable=false;
+        setTimeout(function() {
+            $gameBoard.empty();
+          }, 1000);
+          setTimeout(function() {
+            isClickable=true;
+            game.houseRules();
+          }, 1001);
     },
     //check for hand value, and if it exceeds 21
     checkBust: function(){
@@ -422,14 +433,23 @@ var game = {
                 //Bust Actions
                 //
                 //
-                console.log(game.currentPlayer.name + ' bust')
+                isClickable=false;
+                game.currentPlayer.handValue = totalValue
+                $handValue.text('Hand Value: '+ game.currentPlayer.handValue)
+                var $theAlert = $('<h2>' + game.currentPlayer.name.toUpperCase() +' BUST!</h2>')
+                $theAlert.prependTo($alerts).hide().slideDown(500, function(){
+                    $alerts.children("h2:first").fadeOut(1000, function(){$(this).remove();
+                        isClickable=true;})
+                }) 
                 game.currentPlayer.busted = true;
+
+                setTimeout(function(){$gameBoard.empty()},1000)
                 return;
             }
         else{
             //Player has not busted
             game.currentPlayer.handValue = totalValue
-            console.log(game.currentPlayer.name + ' no bust')
+            $handValue.text('Hand Value: '+ game.currentPlayer.handValue)
             game.currentPlayer.busted = false;
             return;
         }
@@ -445,11 +465,11 @@ var game = {
         debugger
         if(game.player[0].score > game.player[1].score){
             p1Score +=1
-            $Wins.text("Player 1 Wins: "+ p1Score + " |  Player 2 Wins: "+ p2Score)
+            $p1Wins.text("Player 1 Wins: "+ p1Score)
         }
         else if(game.player[0].score < game.player[1].score){
             p2Score +=1
-            $Wins.text("Player 1 Wins: "+ p1Score + " |  Player 2 Wins: "+ p2Score)
+            $p2Wins.text("Player 2 Wins: "+ p2Score)
         }
         else{
             $alerts.fadeOut(10, function() { 
@@ -493,6 +513,12 @@ var game = {
                 game.player[0].hand = []
                 game.player[1].hand = []
                 game.player[2].hand = []
+                isClickable=false;
+                setTimeout(function() {
+                    $gameBoard.empty();
+                    isClickable=true;
+                    $handValue.text('Hand Value: '+ 0)
+                  }, 1000);
 
                 return;
         }
@@ -513,19 +539,30 @@ var game = {
                             }
                         newDeck = false
                     }
-                    game.currentPlayer = game.player[playIndex]                
+                game.currentPlayer = game.player[playIndex]                
                 //Wipe hands
                 game.player[0].busted = false
                 game.player[1].busted = false
                 game.player[2].busted = false   
                 game.player[0].hand = []
                 game.player[1].hand = []
-                game.player[2].hand = []      
+                game.player[2].hand = [] 
+                isClickable=false;
+                var $theAlert = $('<h2>House Wins!</h2>')
+                $theAlert.prependTo($alerts).hide().slideDown(1000, function() {
+                    $alerts.children("h2:first").fadeOut(1000, function(){$(this).remove();
+                        $handValue.text('Hand Value: '+ 0);})
+                  });
+                  setTimeout(function() {
+
+                    $gameBoard.empty();
+                    isClickable=true;
+                  }, 1500);
                 return;
             }           
         else if(game.currentPlayer.handValue < game.player[playIndex].handValue)
             {
-                game.deal()
+                    game.deal();
                     if(game.currentPlayer.busted){
                             //Player gains score
                              
@@ -554,7 +591,13 @@ var game = {
                         game.player[0].hand = []
                         game.player[1].hand = []
                         game.player[2].hand = []
-    
+                        isClickable = false;
+                        setTimeout(function() {
+                            $gameBoard.empty();
+                            isClickable=true; 
+                            $handValue.text('Hand Value: '+ 0);         
+                          }, 1500);
+
                         return;
                     }
                     else{
@@ -573,10 +616,16 @@ var game = {
         game.player[0].busted = false;
         game.player[1].busted=false;
         game.player[2].busted=false;
+        p1Score=0
+        p2Score=0
         game.shuffle()
         game.updateScore()
+        $p1Wins.text("Player 1 Wins: "+ p1Score)
+        $p2Wins.text("Player 2 Wins: "+ p2Score)
+        game.currentPlayer=game.player[0]
         roundCounter = 1
         $roundCounter.text('Round : '+ roundCounter)
+        $handValue.text('Hand Value: '+ game.currentPlayer.handValue)
     }
 }
 
@@ -592,10 +641,11 @@ game.currentPlayer = game.player[0]
  $roundCounter = $('#round-counter')
 
  //elements for tracking, displaying, and calculating the wins
- $Wins = $('#win-counter')
+ $p1Wins = $('#p1-win-counter')
+ $p2Wins = $('#p2-win-counter')
  p1Score = 0
  p2Score = 0
- 
+
  //Alert Box jquery, for later access
  var $alerts = $('.alert-box')
 
@@ -603,3 +653,24 @@ game.currentPlayer = game.player[0]
 var shuffleArray = []
 //game initialize
 game.shuffle()
+
+//jquery of the game board
+$gameBoard = $('#game-board')
+
+//jquery of hand value
+$handValue = $('#hand-value')
+
+//jquery of all buttons
+$hitButton = $('#hitMe')
+$stayButton = $('#stayButton')
+$resetButton = $('#reset-button')
+
+//event listeners for all buttons
+
+$hitButton.click(function(){
+    game.deal()})
+$stayButton.click(function(){game.stay()})
+$resetButton.click(function(){game.reset()})
+
+//boolean for clickability (used for timers)
+var isClickable = true;
